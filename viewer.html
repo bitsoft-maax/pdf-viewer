@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <title> Хаан банк - PDF reader</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="js/underscore-umd-min.js"></script>
+  <script type="text/javascript" src="js/backbone-min.js"></script>
+  <script type="text/javascript" src="js/turn.min.js"></script>
+  <script type="text/javascript" src="pdfjs/pdf.js"></script>
+  <script type="text/javascript" src="js/zoom.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+
+  <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link href="css/font.css" rel="stylesheet" type="text/css">
+  <link type="text/css" rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+<div class="catalog-app">
+  <div id="viewer">
+    <div id="flipbook" class="ui-flipbook display-double first-page">
+      <a ignore="1" class="ui-arrow-control ui-arrow-next-page"></a>
+      <a ignore="1" class="ui-arrow-control ui-arrow-previous-page"></a>
+    </div>
+  </div>
+  <!-- controls -->
+  <div id="controls" class="hidden-controls">
+    <div class="all">
+      <div class="ui-slider" id="page-slider">
+        <div class="bar">
+          <div class="progress-width">
+            <div class="progress" style="width: 100%;">
+              <div class="handler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-options" id="options">
+        <a class="ui-icon" id="ui-icon-zoom">
+          <i class="fa fa-crosshairs"></i>
+        </a>
+        <a class="ui-icon show-hint" id="ui-icon-share" v-title="Татаж авах">
+          <i class="fa fa-cloud-download"></i>
+        </a>
+        <a class="ui-icon show-hint" id="ui-icon-full-screen" v-title="Бүтэн дэлгэцээр харах">
+          <i class="fa fa-expand"></i>
+        </a>
+        <a class="ui-icon show-hint" id="ui-icon-toggle">
+          <i class="fa fa-ellipsis-h"></i>
+        </a>
+      </div>
+
+      <!-- zoom slider -->
+      <div id="zoom-slider-view" class="zoom-slider" style="bottom: 5px; right: auto;">
+        <div class="bg">
+          <div class="ui-slider" id="zoom-slider">
+            <div class="bar">
+              <div class="progress-width">
+                <div class="progress" style="height: 0%;">
+                  <div class="handler"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / zoom slider -->
+    </div>
+
+    <div id="ui-icon-expand-options">
+      <a class="ui-icon show-hint">
+        <i class="fa fa-ellipsis-h"></i>
+      </a>
+    </div>
+
+  </div>
+  <!-- / controls -->
+
+  <script type="text/javascript">
+    
+    FlipbookSettings = {
+      options: {
+        width: 1260,
+        height: 891
+      },
+    };
+
+    $(window).load(function (event) {
+      $("#flipbook .page-1").addClass('animation-on');
+    });
+  </script>
+</div>
+</body>
+</html>
